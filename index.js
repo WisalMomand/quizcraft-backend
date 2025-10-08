@@ -12,12 +12,14 @@ const assignedQuizRoutes = require("./routes/assignedQuizRoutes");
 const quizResultRoutes = require("./routes/quizResultRoutes");
 const allStudentResultRoutes = require("./routes/AllStudentResultRoutes");
 const subjectRoutes = require("./routes/subjectRoutes");
-const studentResultRoutes = require("./routes/studentResultRoutes"); // ✅
+const studentResultRoutes = require("./routes/studentResultRoutes");
 
 const app = express();
 
 // ✅ Configure CORS to allow your Netlify frontend
-const FRONTEND_URL = process.env.FRONTEND_URL || "https://quizcraft11.netlify.app";
+const FRONTEND_URL =
+  process.env.FRONTEND_URL || "https://quizecraft12.netlify.app";
+
 app.use(
   cors({
     origin: FRONTEND_URL,
@@ -39,7 +41,7 @@ mongoose
   .then(() => console.log("✅ MongoDB connected"))
   .catch((err) => console.error("❌ DB Connection Error:", err));
 
-// ✅ Health check route (for testing deployment)
+// ✅ Health check route
 app.get("/api/health", (req, res) => {
   res.json({ status: "Backend is running 🚀" });
 });
@@ -57,3 +59,4 @@ app.use("/api/student-results", studentResultRoutes);
 // ✅ Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+
