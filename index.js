@@ -16,9 +16,9 @@ const studentResultRoutes = require("./routes/studentResultRoutes");
 
 const app = express();
 
-// ✅ Configure CORS to allow your Netlify frontend
+
 const FRONTEND_URL =
-  process.env.FRONTEND_URL || "https://quizecraft12.netlify.app";
+  process.env.FRONTEND_URL || "https://quizcraft2.netlify.app";
 
 app.use(
   cors({
